@@ -23,7 +23,7 @@ yarn-debug.log*
 yarn-error.log*
 
 # other
-/docs
+/privdocs
 
 # package lock
 package-lock.json
