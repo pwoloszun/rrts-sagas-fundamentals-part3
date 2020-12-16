@@ -1,4 +1,5 @@
-import { connect } from 'react-redux';
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   actions,
@@ -7,27 +8,8 @@ import {
 
 import Counter from '../../../../components/Counter';
 
-const mapStateToProps = (state: any) => {
-  return {
-    value: selectors.selectCounterValue(state),
-    squareValue: selectors.selectSquareValue(state)
-  }
-};
-
-const mapDispatchToProps = function (dispatch: any) {
-  return {
-    onIncrement() {
-      dispatch(actions.increment(5));
-    },
-    onDecrement() {
-      dispatch(actions.decrement(3));
-    },
-    onReset() {
-      dispatch(actions.reset());
-    }
-  }
-};
-
-const NewSyncCounter = connect(mapStateToProps, mapDispatchToProps)(Counter);
-
-export default NewSyncCounter;
+export default function NewSyncCounter() {
+  return (
+    <div>Todo</div>
+  );
+}

@@ -1,6 +1,7 @@
-import reducer, { actions, newSyncCounterSliceId } from './newSyncCounterSlice';
+import reducer, { newSyncCounterSliceId } from './newSyncCounterSlice';
 
 import * as selectors from "./selectors";
+import * as actions from "./actions";
 
 export {
   selectors,
