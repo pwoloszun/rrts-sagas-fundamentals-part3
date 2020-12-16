@@ -4,8 +4,11 @@ import { RootState } from '../store';
 import { newSyncCounterSliceId } from './newSyncCounterSlice';
 
 export const selectStateSlice = (state: RootState) => {
-  return state[newSyncCounterSliceId];
+  return 123; // TODO
 };
 
 // TODO
-// export const selectCounterValue = createSelector(
+// export const selectCounterValue
+
+// TODO
+// export const selectSquareValue

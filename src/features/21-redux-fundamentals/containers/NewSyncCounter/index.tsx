@@ -1,15 +1,20 @@
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  actions,
-  selectors,
-} from '../../../../store/21b-newSyncCounter';
-
 import Counter from '../../../../components/Counter';
 
 export default function NewSyncCounter() {
+  const syncCounterValue = 123;
+
+  const incrementHandler = () => { };
+
   return (
-    <div>Todo</div>
+    <div>
+      <h3>NewSyncCounter</h3>
+      <Counter
+        value={syncCounterValue}
+        onIncrement={incrementHandler}
+      />
+    </div>
   );
 }
