@@ -23,7 +23,7 @@ export interface DataEntity {
   id: number;
 }
 
-type DataEntityParams = Partial<DataEntity>;
+type DataEntityParams = Omit<DataEntity, 'id'>;
 
 export type EntitiesAll<T> = T[] | NormalizedEntities<T>;
 

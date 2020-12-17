@@ -1,6 +1,7 @@
 import React from 'react';
 
-import NormalizedTodoListUsingSaga from './containers/NormalizedTodoListUsingSaga';
+import ClassicNormalizedTodoListUsingSaga from './containers/ClassicNormalizedTodoListUsingSaga';
+// import NormalizedTodoListUsingSaga from './containers/NormalizedTodoListUsingSaga';
 // import externalTodosWebsocket from './services/external-todos-websocket';
 
 class TodosNormalized extends React.Component {
@@ -12,7 +13,8 @@ class TodosNormalized extends React.Component {
           <button onClick={this.handleStopExternalWS}>Stop</button>
         </div>
         <h3>Todos Normalized</h3>
-        <NormalizedTodoListUsingSaga />
+        {/* <NormalizedTodoListUsingSaga /> */}
+        <ClassicNormalizedTodoListUsingSaga />
       </div>
     );
   }

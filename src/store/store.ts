@@ -6,9 +6,9 @@ import newSyncCounterReducer, { newSyncCounterSliceId } from './21b-newSyncCount
 import asyncCounterWithSagaReducer, { asyncCounterWithSagaSliceId } from './22b-asyncCounterWithSaga';
 import classicAsyncCounterWithSagaReducer, { classicAsyncCounterWithSagaSliceId } from './22c-classicAsyncCounterWithSaga';
 import todosWithSagaReducer, { todosWithSagaSliceId } from './24c-todosWithSaga';
+import classicTodosWithSagaReducer, { classicTodosWithSagaSliceId } from './24d-classicTodosWithSaga';
 
 import rootSaga from './root-saga';
-// import loggerMiddleware from '../features/25-redux-middleware/my-middleware/02-loggerMiddleware';
 
 const isDevMode = process.env.NODE_ENV === 'development';
 const sagaMiddleware = createSagaMiddleware();
@@ -27,6 +27,7 @@ export function customCongfigStore(preloadedState: any = undefined) {
       [asyncCounterWithSagaSliceId]: asyncCounterWithSagaReducer,
       [classicAsyncCounterWithSagaSliceId]: classicAsyncCounterWithSagaReducer,
       [todosWithSagaSliceId]: todosWithSagaReducer,
+      [classicTodosWithSagaSliceId]: classicTodosWithSagaReducer,
     },
     middleware,
     preloadedState
