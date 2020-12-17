@@ -11,19 +11,9 @@
       "description": "Math, physics"
     },
     {
-      "title": "play games",
-      "description": "at 7:45pm",
-      "id": 103
-    },
-    {
       "title": "brush teeth3",
       "description": "every night & morning",
       "id": 104
-    },
-    {
-      "title": "imba!",
-      "description": "",
-      "id": 106
     },
     {
       "title": "one more thing",
@@ -665,6 +655,12 @@
       "details": "Duis aliquam convallis nunc. Proin at turpis a pede posuere nonummy. Integer non velit.",
       "status": [],
       "attachments": "https://va.gov/sit.json?luctus=venenatis&et=lacinia&ultrices=aenean&posuere=sit&cubilia=amet&curae=justo&nulla=morbi&dapibus=ut&dolor=odio&vel=cras&est=mi&donec=pede&odio=malesuada&justo=in&sollicitudin=imperdiet&ut=et&suscipit=commodo&a=vulputate&feugiat=justo&et=in&eros=blandit&vestibulum=ultrices&ac=enim&est=lorem&lacinia=ipsum&nisi=dolor&venenatis=sit&tristique=amet&fusce=consectetuer&congue=adipiscing&diam=elit&id=proin&ornare=interdum&imperdiet=mauris&sapien=non&urna=ligula&pretium=pellentesque&nisl=ultrices&ut=phasellus&volutpat=id&sapien=sapien&arcu=in&sed=sapien&augue=iaculis&aliquam=congue&erat=vivamus&volutpat=metus&in=arcu&congue=adipiscing&etiam=molestie&justo=hendrerit&etiam=at&pretium=vulputate&iaculis=vitae&justo=nisl&in=aenean&hac=lectus&habitasse=pellentesque&platea=eget&dictumst=nunc&etiam=donec&faucibus=quis&cursus=orci&urna=eget&ut=orci&tellus=vehicula&nulla=condimentum&ut=curabitur&erat=in&id=libero&mauris=ut&vulputate=massa&elementum=volutpat&nullam=convallis&varius=morbi&nulla=odio&facilisi=odio&cras=elementum&non=eu&velit=interdum&nec=eu&nisi=tincidunt&vulputate=in&nonummy=leo&maecenas=maecenas&tincidunt=pulvinar&lacus=lobortis&at=est"
+    }
+  ],
+  "counter-values": [
+    {
+      "value": 14,
+      "id": 100
     }
   ]
 }

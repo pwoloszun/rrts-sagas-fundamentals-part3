@@ -1,10 +1,11 @@
 import { configureStore, ThunkAction, Action, getDefaultMiddleware } from '@reduxjs/toolkit';
 import createSagaMiddleware from 'redux-saga';
 
+import syncCounterReducer, { syncCounterSliceId } from './21-syncCounter';
 import newSyncCounterReducer, { newSyncCounterSliceId } from './21b-newSyncCounter';
 import asyncCounterWithSagaReducer, { asyncCounterWithSagaSliceId } from './22b-asyncCounterWithSaga';
+import classicAsyncCounterWithSagaReducer, { classicAsyncCounterWithSagaSliceId } from './22c-classicAsyncCounterWithSaga';
 import todosWithSagaReducer, { todosWithSagaSliceId } from './24c-todosWithSaga';
-import roomDetectorsReducer, { sliceId as roomDetectorsSliceId } from './43-roomDetectors';
 
 import rootSaga from './root-saga';
 // import loggerMiddleware from '../features/25-redux-middleware/my-middleware/02-loggerMiddleware';
@@ -17,16 +18,18 @@ const middleware = getDefaultMiddleware().concat([
   // loggerMiddleware
 ]);
 
-export function customCongfigStore() {
+export function customCongfigStore(preloadedState: any = undefined) {
   const store = configureStore({
     devTools: isDevMode,
     reducer: {
+      [syncCounterSliceId]: syncCounterReducer,
       [newSyncCounterSliceId]: newSyncCounterReducer,
       [asyncCounterWithSagaSliceId]: asyncCounterWithSagaReducer,
+      [classicAsyncCounterWithSagaSliceId]: classicAsyncCounterWithSagaReducer,
       [todosWithSagaSliceId]: todosWithSagaReducer,
-      [roomDetectorsSliceId]: roomDetectorsReducer,
     },
-    middleware
+    middleware,
+    preloadedState
   });
   sagaMiddleware.run(rootSaga);
   return store;

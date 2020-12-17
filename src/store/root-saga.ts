@@ -3,19 +3,15 @@ import { call, all } from 'redux-saga/effects'
 
 // sagas
 import { sagas as asyncCounterWithSagaSagas } from './22b-asyncCounterWithSaga';
-import { sagas as todosWithSagaSagas } from './24c-todosWithSaga';
+import { sagas as classicAsyncCounterWithSagaSagas } from './22c-classicAsyncCounterWithSaga';
 
-// adv sagas
-import { sagas as roomDetectorsSagas } from './43-roomDetectors';
+import { sagas as todosWithSagaSagas } from './24c-todosWithSaga';
 
 // merge all App sagas here
 const allSagasMap = {
   asyncCounterWithSagaSagas,
   todosWithSagaSagas,
-
-  // adv sagas
-  roomDetectorsSagas,
-
+  classicAsyncCounterWithSagaSagas,
 };
 
 export default function* rootSaga() {
