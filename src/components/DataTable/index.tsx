@@ -71,7 +71,7 @@ export default class DataTable<T extends DataTableItem> extends Component<DataTa
     const { metaData } = this.props;
     const headerCells = metaData.map((meta) => {
       return (
-        <td key={meta.value as string}>
+        <td key={meta.value as string} role="header">
           <a href="#null">{meta.text}</a>
         </td>
       );

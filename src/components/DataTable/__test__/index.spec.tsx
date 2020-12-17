@@ -5,7 +5,7 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 
-import DataTable, { DataTableProps } from './index';
+import DataTable, { DataTableProps } from '../index';
 
 function renderDataTable<T>({
   items = [],
@@ -44,18 +44,18 @@ describe('DataTable', () => {
   describe('undefined selectedItem', () => {
     it('should render as many headers as specified in meta data', () => {
       const { items, metaData } = propsExample();
-      const { container } = renderDataTable({ items, metaData });
-      const headers = container.querySelectorAll('table thead td');
+      const { getAllByRole } = renderDataTable({ items, metaData });
+      const headers = getAllByRole('header');
       expect(headers.length).toEqual(metaData.length);
     });
 
     it('should render headers with texts from meta data', () => {
       const { items, metaData } = propsExample();
-      const { container } = renderDataTable({ items, metaData });
-      const headers = container.querySelectorAll('table thead td');
+      const { getAllByRole } = renderDataTable({ items, metaData });
+      const headers = getAllByRole('header');
       metaData.forEach((meta, i) => {
         const expectedText = meta.text;
-        const header = headers.item(i);
+        const header = headers[i];
         expect(header).toHaveTextContent(expectedText);
       });
     });
