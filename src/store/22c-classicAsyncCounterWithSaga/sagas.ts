@@ -7,6 +7,7 @@ import * as actions from './actions';
 import * as types from './types';
 import * as selectors from './selectors';
 
+// worker
 function* incrementCounter(action: AnyAction) {
   try {
     const { id, incrementBy } = action.payload;
@@ -14,14 +15,19 @@ function* incrementCounter(action: AnyAction) {
 
     // TODO 2: update counter value using api
 
+    // dispatch success action to Store using put() effect
   } catch (e) {
     // TODO: handle error
   }
 }
 
+// wacher saga
 function* asyncIncrementSaga() {
   yield takeEvery(types.INCREMENT_REQUEST, incrementCounter);
 }
+
+// fetch current async counter value from server
+// api.getCounterValue(id);
 
 // TODO: function* decrementCounter
 

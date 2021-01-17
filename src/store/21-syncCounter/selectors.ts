@@ -10,3 +10,9 @@ import { syncCounterSliceId } from './reducer';
 
 // TODO
 // export const selectSquareValue
+
+// TODO:
+// selectUpdatedAt
+
+// TODO:
+// selectFormattedUpdatedAt - use: date.toISOString()

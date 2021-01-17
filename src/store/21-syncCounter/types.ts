@@ -1,3 +1,3 @@
-export const INCREMENT = 'basics/counter/Increment';
-export const DECREMENT = 'basics/counter/Decrement';
-export const RESET = 'basics/counter/Reset';
+export const INCREMENT = 'syncCounter/Increment';
+export const DECREMENT = 'syncCounter/Decrement';
+export const RESET = 'syncCounter/Reset';

@@ -17,12 +17,12 @@ export default function ClassicAsyncCounterUsingSaga() {
   const formattedUpdatedAt = useSelector(selectors.selectFormattedUpdatedAt);
 
   const dispatch = useDispatch();
-  const onIncrement = useCallback(() => {
+  const onIncrement = () => {
     dispatch(actions.incrementRequest(counterId, 7))
-  }, [dispatch]);
-  const onDecrement = useCallback(() => {
+  };
+  const onDecrement = () => {
     // TODO
-  }, [dispatch]);
+  };
 
   return (
     <div>
