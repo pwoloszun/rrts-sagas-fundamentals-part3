@@ -1,8 +1,8 @@
 import { put, takeEvery } from 'redux-saga/effects';
 import { PayloadAction } from '@reduxjs/toolkit';
 
-import api from '../../api/todos';
-import { Todo, TodoParams } from '../../api/models/todo.model';
+import api from 'src/api/todos';
+import { Todo, TodoParams } from 'src/api/models/todo.model';
 
 import { actions, TodoUpdate } from './todosWithSagaSlice';
 
@@ -18,15 +18,12 @@ function* fetchTodosSaga() {
 }
 
 // function* removeTodo(action: PayloadAction<{ todo: Todo }>)
-
 // function* removeTodoSaga() 
 
 // function* createTodo(action: PayloadAction<{ params: TodoParams }>) 
-
 // function* createTodoSaga() 
 
 // function* optimisticUpdateTodo(action: PayloadAction<{ updateParams: TodoUpdate }>) 
-
 // function* optimisticUpdateTodoSaga() 
 
 export {

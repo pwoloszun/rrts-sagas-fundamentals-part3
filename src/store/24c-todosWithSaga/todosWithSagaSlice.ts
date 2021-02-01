@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction, createEntityAdapter, EntityState, Update } from '@reduxjs/toolkit';
-import { TodoParams } from '../../api/models/todo.model';
+
+import { TodoParams } from 'src/api/models/todo.model';
 
 export enum TodoStatus {
   Persisted = 'PERSISTED',
@@ -59,7 +60,9 @@ export const todosWithSagaSlice = createSlice({
         };
       }
     },
-    // TODO: other features
+
+    // TODO other features: remove, startEditing, cancelEditing, opimisticUpdate, create/optimisticCreate
+
     errorOccured: {
       reducer: (state, action: PayloadAction<{ info: string; error: Error; }>) => {
         const { info, error } = action.payload;

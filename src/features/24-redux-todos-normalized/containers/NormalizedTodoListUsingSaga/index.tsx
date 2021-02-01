@@ -33,14 +33,20 @@ export default function NormalizedTodoListUsingSaga() {
     // TODO
   };
 
-  const todos = useSelector(selectors.selectAllTodos);
-  const isFetching = useSelector(selectors.selectIsFetchingMany);
+  const todos = [ // TODO
+    { id: 100, title: 'first', description: 'some desc' },
+    { id: 200, title: 'sec' },
+    { id: 300, title: 'third', description: 'other desc' },
+    { id: 400, title: 'fourth', description: 'imba!' },
+  ];
+  const isFetching = false; // TODO
 
   // feature specific state
+  // TODO
   const statuses = statusesMapFor(todos, {
-    removing: useSelector(selectors.selectIsRemovingTodosMap),
-    saving: useSelector(selectors.selectIsSavingTodosMap),
-    editing: useSelector(selectors.selectIsEditingTodosMap),
+    removing: { 200: true },
+    saving: { 400: true },
+    editing: { 300: true },
   });
 
   useEffect(() => {
