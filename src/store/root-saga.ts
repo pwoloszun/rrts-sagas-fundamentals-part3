@@ -8,12 +8,15 @@ import { sagas as classicAsyncCounterWithSagaSagas } from './22c-classicAsyncCou
 import { sagas as todosWithSagaSagas } from './24c-todosWithSaga';
 import { sagas as classicTodosWithSagaSagas } from './24d-classicTodosWithSaga';
 
+import { sagas as roomDetectorsSagas } from './43-roomDetectors';
+
 // merge all App sagas here
 const allSagasMap = {
   asyncCounterWithSagaSagas,
   classicAsyncCounterWithSagaSagas,
   todosWithSagaSagas,
   classicTodosWithSagaSagas,
+  roomDetectorsSagas,
 };
 
 export default function* rootSaga() {

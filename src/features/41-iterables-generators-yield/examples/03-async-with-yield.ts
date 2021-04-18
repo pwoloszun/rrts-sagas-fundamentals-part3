@@ -6,7 +6,7 @@ function apiFetchUser(): Promise<any> {
 }
 
 // client code
-function* fetchUser() {
+function* fetchUser(): Generator<any> {
   const user = yield apiFetchUser();
   console.log('user data', user);
 }

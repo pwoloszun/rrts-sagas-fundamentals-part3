@@ -7,6 +7,7 @@ import asyncCounterWithSagaReducer, { asyncCounterWithSagaSliceId } from './22b-
 import classicAsyncCounterWithSagaReducer, { classicAsyncCounterWithSagaSliceId } from './22c-classicAsyncCounterWithSaga';
 import todosWithSagaReducer, { todosWithSagaSliceId } from './24c-todosWithSaga';
 import classicTodosWithSagaReducer, { classicTodosWithSagaSliceId } from './24d-classicTodosWithSaga';
+import roomDetectorsReducer, { sliceId as roomDetectorsSliceId } from './43-roomDetectors';
 
 import rootSaga from './root-saga';
 
@@ -28,6 +29,7 @@ export function customCongfigStore(preloadedState: any = undefined) {
       [classicAsyncCounterWithSagaSliceId]: classicAsyncCounterWithSagaReducer,
       [todosWithSagaSliceId]: todosWithSagaReducer,
       [classicTodosWithSagaSliceId]: classicTodosWithSagaReducer,
+      [roomDetectorsSliceId]: roomDetectorsReducer,
     },
     middleware,
     preloadedState

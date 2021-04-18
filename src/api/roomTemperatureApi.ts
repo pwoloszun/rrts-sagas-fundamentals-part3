@@ -30,7 +30,7 @@ const previousTemperatures = reduce(allRoomBaseResults, (temperaturesMap: any, b
 const DELAY_IN_MS = 800;
 
 const roomTemperatureApi = {
-  temperatureFor(roomId: number) {
+  temperatureFor(roomId: number): Promise<TemperatureInfo> {
     const baseResult = allRoomBaseResults[roomId];
     if (!baseResult) {
       throw new Error(`Undefined room ID: ${roomId}`);
@@ -46,7 +46,7 @@ const roomTemperatureApi = {
     return delayedValue(result, DELAY_IN_MS);
   },
 
-  create(name: string) {
+  create(name: string): Promise<TemperatureInfo> {
     const id = deriveNextID();
     const tempBase = randomBetween(17, 29, true);
     const createdRoomDetector = {

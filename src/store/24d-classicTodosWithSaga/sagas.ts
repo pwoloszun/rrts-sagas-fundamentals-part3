@@ -1,4 +1,4 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, call, StrictEffect } from 'redux-saga/effects';
 
 import api from '../../api/todos';
 import { Todo, TodoParams } from '../../api/models/todo.model';
@@ -7,9 +7,9 @@ import { TodoUpdate } from './adapters/todo-entities-adapter';
 import * as actions from './actions';
 import * as types from './types';
 
-function* fetchTodos(action: any) {
+function* fetchTodos(action: any): Generator<StrictEffect> {
   try {
-    const todosNormalized = yield api.getAll();
+    const todosNormalized = (yield call(api.getAll)) as Todo[];
     yield put(actions.fetchTodosSuccess(todosNormalized));
   } catch (e) {
     console.error(e); // TODO: handle error

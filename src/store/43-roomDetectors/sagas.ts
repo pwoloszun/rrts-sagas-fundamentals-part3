@@ -1,14 +1,14 @@
-import { call, cancel, cancelled, fork, put, take, takeEvery, select } from 'redux-saga/effects';
+import { call, cancel, cancelled, fork, put, take, takeEvery, select, StrictEffect } from 'redux-saga/effects';
 
 import { actions, types, selectors } from "./index";
-import roomTemperatureApi from '../../api/roomTemperatureApi';
+import roomTemperatureApi, { TemperatureInfo } from '../../api/roomTemperatureApi';
 import { delay } from '../../utils/randoms';
 
-function* createNewRoomDetector(action: any) {
+function* createNewRoomDetector(action: any): Generator<StrictEffect> {
   try {
     const name = action.payload;
     const createdRoomDetector = yield call(roomTemperatureApi.create, name);
-    yield put(actions.createNewRoomDetectorSuccess(createdRoomDetector));
+    yield put(actions.createNewRoomDetectorSuccess(createdRoomDetector as TemperatureInfo));
   } catch (e) {
     console.error(e); // TODO: handle error
   }
@@ -35,7 +35,7 @@ function* stopTemperatureBgSync(roomId: number, bgSyncTask: any) {
   // TODO
 }
 
-function* singleRoomDetectorTrackingFlow(startAction: any) {
+function* singleRoomDetectorTrackingFlow(startAction: any): Generator<StrictEffect> {
   const roomId = startAction.payload;
   const isAlreadyRunning = yield select(selectors.checkIsRunningRoomDetectorBy, roomId);
 

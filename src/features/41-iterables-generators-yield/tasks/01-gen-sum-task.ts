@@ -1,4 +1,4 @@
-function* sumGeneratorFn(startValue = 0) {
+function* sumGeneratorFn(startValue = 0): Generator<number, number, number | null> {
   let sum = startValue;
   let receivedValue = yield sum;
   while (receivedValue !== null) {
