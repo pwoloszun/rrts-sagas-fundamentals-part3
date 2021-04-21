@@ -17,7 +17,7 @@ function* incrementCounter(action: AnyAction): any {
 
     const nextVal = currVal + incrementBy;
     // TODO 2: update counter value using api
-    // yield api.updateCounterValue(id, { value: nextVal });
+    // const fff = await api.updateCounterValue(id, { value: nextVal });
     const counterEntity = yield call(api.updateCounterValue, id, { value: nextVal });
 
     // dispatch success action to Store using put() effect
