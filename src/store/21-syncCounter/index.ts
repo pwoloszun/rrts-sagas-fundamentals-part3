@@ -8,7 +8,7 @@ export {
   syncCounterSliceId,
   selectors,
   actions,
-  types
+  types,
 };
 
 export default reducer;

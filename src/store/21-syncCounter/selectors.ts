@@ -1,12 +1,12 @@
 import { createSelector } from 'reselect';
 
 import { syncCounterSliceId } from './reducer';
+import { RootState } from '../store';
 
-// TOD: refactor
 // const selectFeature
 
-// TODO
-// export const selectCounterValue
+export const selectCounterValue =
+  (state: RootState) => state[syncCounterSliceId].value;
 
 // TODO
 // export const selectSquareValue

@@ -1,3 +1,5 @@
+import { date } from 'faker';
+
 interface Action {
   type: string;
   payload: any;
@@ -27,12 +29,11 @@ const state = {
 
 
 
+// FSA Flux Standard Action
 // actions
 const action = {
   type: 'users/fetched',
-  payload: {
-    users: [{ id: 123, name: 'bob' }, { id: 2, name: 'ed' }]
-  }
+  payload: { age: 1233 },
 }; // "event"
 
 store.dispatch(action);
@@ -41,6 +42,7 @@ store.dispatch(action);
 
 // reducer(s)
 function usersReducer(state, action) {
+  
   return {};
 }
 

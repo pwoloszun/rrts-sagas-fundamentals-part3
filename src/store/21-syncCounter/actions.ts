@@ -1,9 +1,13 @@
 import * as types from './types';
 
-export function incrementAction() {
+export function incrementAction(incBy: number, lastModificationDt: number) {
   // TODO
   return {
-    type: '--TODO--'
+    type: types.INCREMENT,
+    payload: {
+      incBy,
+      lastModificationDt
+    }
   };
 }
 
