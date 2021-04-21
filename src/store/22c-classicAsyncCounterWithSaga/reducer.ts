@@ -11,7 +11,7 @@ interface SliceState {
 }
 
 const initialState: SliceState = {
-  asyncValue: 0,
+  asyncValue: 100,
   updatedAt: null,
   isLoading: false,
   errorMessage: null,
@@ -23,10 +23,16 @@ export default function asyncCounterReducer(
 ): SliceState {
   switch (action.type) {
     case types.INCREMENT_REQUEST: {
-      return state; // TODO
+      return produce(state, (draftState) => {
+        draftState.isLoading = true;
+      });
     }
     case types.INCREMENT_SUCCESS: {
-      return state; // TODO
+      const { nextValue } = action.payload;
+      return produce(state, (draftState) => {
+        draftState.isLoading = false;
+        draftState.asyncValue = nextValue;
+      });
     }
     case types.INCREMENT_ERROR: {
       return state; // TODO

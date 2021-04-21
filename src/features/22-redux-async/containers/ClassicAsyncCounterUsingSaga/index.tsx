@@ -20,6 +20,10 @@ export default function ClassicAsyncCounterUsingSaga() {
   const onIncrement = () => {
     dispatch(actions.incrementRequest(counterId, 7))
   };
+
+  //  INC_REQ -> INC_SUCCESS
+  //          -> INC_ERR
+  //
   const onDecrement = () => {
     // TODO
   };

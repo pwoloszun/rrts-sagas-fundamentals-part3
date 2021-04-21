@@ -14,7 +14,10 @@ export const selectAsyncCounterValue = createSelector(
 );
 
 // TODO
-export const selectIsLoading = () => true;
+export const selectIsLoading = createSelector(
+  selectFeature,
+  (state) => state.isLoading
+);
 
 export const selectUpdatedAt = createSelector(
   selectFeature,

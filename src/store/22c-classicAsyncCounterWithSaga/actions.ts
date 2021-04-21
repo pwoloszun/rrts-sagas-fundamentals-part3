@@ -11,6 +11,7 @@ export function incrementRequest(id: number, incrementBy: number): IncrementRequ
   return {
     type: types.INCREMENT_REQUEST,
     payload: {
+      id, incrementBy
     }
   };
 }
@@ -24,6 +25,7 @@ export function incrementSuccess(nextValue: number): IncrementSuccessAction {
   return {
     type: types.INCREMENT_SUCCESS,
     payload: {
+      nextValue
     }
   };
 }

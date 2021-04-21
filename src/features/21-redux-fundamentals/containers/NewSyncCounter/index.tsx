@@ -5,11 +5,10 @@ import Counter from 'src/components/Counter';
 import { actions, selectors } from 'src/store/21-syncCounter'; // redux module
 
 export default function NewSyncCounter() {
-  const syncCounterValue = useSelector(
-    selectors.selectCounterValue
-  );
-  const updatedAt = 123;
-  const sqr = 10 ** 2;
+  const syncCounterValue = useSelector(selectors.selectCounterValue);
+  const updatedAt = useSelector(selectors.selectFormattedUpdatedAt2);
+
+  const sqr = useSelector(selectors.selectSquareCounterValue);
   const dispatch = useDispatch();
 
   const incrementHandler = () => {
