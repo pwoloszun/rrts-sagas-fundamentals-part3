@@ -21,25 +21,14 @@ export const asyncCounterSlice = createSlice({
   name: asyncCounterWithSagaSliceId,
   initialState,
   reducers: {
-    incrementRequest: {
-      reducer: (state, action: PayloadAction<{ incBy: number }>) => {
-        state.isLoading = true;
-      },
-      prepare: (incBy: number) => {
-        return {
-          payload: { incBy }
-        };
-      }
+
+    incrementRequest: (state, action: PayloadAction<{ id: number; incBy: number }>) => {
+      state.isLoading = true;
     },
-    incrementSuccess: {
-      reducer: (state, action: PayloadAction<{ incBy: number }>) => {
-        const { incBy } = action.payload;
-        state.isLoading = false;
-        state.asyncWithSagaValue += incBy;
-      },
-      prepare: (incBy: number) => {
-        return { payload: { incBy } };
-      }
+    incrementSuccess: (state, action: PayloadAction<{ value: number }>) => {
+      const { value } = action.payload;
+      state.isLoading = false;
+      state.asyncWithSagaValue = value;
     },
 
     // TODO: decrement flow
@@ -47,6 +36,11 @@ export const asyncCounterSlice = createSlice({
     // TODO: errorOccured
   },
 });
+
+
+// request/pending -> success/fulfilled
+//                 -> errror/rejected
+
 
 export const actions = asyncCounterSlice.actions;
 

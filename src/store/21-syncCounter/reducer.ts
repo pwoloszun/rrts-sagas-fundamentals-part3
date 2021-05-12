@@ -32,7 +32,7 @@ export default function syncCounterReducer(state = initialState, action: any): S
       return nextState2;
     }
 
-    case 'costam': {
+    case 'errorOccured': {
       return state;
     }
 

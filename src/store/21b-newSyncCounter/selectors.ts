@@ -1,14 +1,44 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
-import { RootState } from '../store';
 import { newSyncCounterSliceId } from './newSyncCounterSlice';
+import { RootState } from '../store';
 
-export const selectStateSlice = (state: RootState) => {
-  return 123; // TODO
+const selectSlice = (state: RootState) => {
+  return state[newSyncCounterSliceId];
 };
 
-// TODO
-// export const selectCounterValue
+export const selectCounterValue = (state: RootState) => {
+  const stateSlice = selectSlice(state);
+  return stateSlice.value;
+};
 
-// TODO
-// export const selectSquareValue
+export const selectSquareCounterValue = (state: RootState) => {
+  const counterValue = selectCounterValue(state);
+  return counterValue ** 2;
+};
+
+const selectUpdatedAt = (state: RootState) => {
+  const stateSlice = selectSlice(state);
+  return stateSlice.updatedAt;
+};
+
+export const selectFormattedUpdatedAt = (state: RootState) => {
+  return 'TOD';
+};
+
+
+
+// const selectExpensiveCpu = createSelector(
+//   [selectXxx],
+//   (xxxVal) => 123
+// );
+
+// export const selectFormattedUpdatedAt2 = createSelector(
+//   [selectUpdatedAt],
+//   (updatedAt) => new Date(updatedAt).toISOString()
+// );
+
+// export const selectCombined = createSelector(
+//   [selectExpensiveCpu, selectUpdatedAt],
+//   (expensiveValue, date) => expensiveValue *date
+// );
