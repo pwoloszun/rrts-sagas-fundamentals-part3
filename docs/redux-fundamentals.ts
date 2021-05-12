@@ -1,9 +1,11 @@
 import { date } from 'faker';
 
-interface Action {
+interface Action { // app Events
   type: string;
-  payload: any;
+  payload?: any;
 }
+
+// FSA - Flux standard Action
 
 class Store {
   dispatch(action: Action) { /*...*/ }
@@ -16,24 +18,29 @@ class Store {
 // in app:
 const store = new Store();
 
+// root state shape
 const state = {
   counter: { // state slice
     value: 997
   },
+
   users: { // users state slice
     entities: [],
-    count: 123
+    count: 123,
+    name: 'qq'
   },
+
   todos: [] //state slice
+
 };
 
 
 
 // FSA Flux Standard Action
 // actions
-const action = {
+const action: Action = {
   type: 'users/fetched',
-  payload: { age: 1233 },
+  payload: { age: 1233, name: 'qq' },
 }; // "event"
 
 store.dispatch(action);
@@ -42,7 +49,7 @@ store.dispatch(action);
 
 // reducer(s)
 function usersReducer(state, action) {
-  
+
   return {};
 }
 

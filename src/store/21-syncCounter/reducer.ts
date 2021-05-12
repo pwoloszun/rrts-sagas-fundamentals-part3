@@ -10,7 +10,10 @@ type StateSlice = {
 
 // initial feature state value
 const initialState: StateSlice = {
-  value: -997,
+  value: 10, // primary state
+
+  // NO computed/derived state
+
   updatedAt: 200000,
 };
 
@@ -22,11 +25,11 @@ export default function syncCounterReducer(state = initialState, action: any): S
 
     case types.INCREMENT: {
       const { incBy, lastModificationDt } = action.payload;
-      const nextState = produce(state, (draftState) => {
+      const nextState2 = produce(state, (draftState) => {
         draftState.value = state.value + incBy;
-        draftState.updatedAt = lastModificationDt;
       });
-      return nextState;
+
+      return nextState2;
     }
 
     case 'costam': {

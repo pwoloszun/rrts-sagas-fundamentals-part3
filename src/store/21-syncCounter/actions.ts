@@ -1,6 +1,6 @@
 import * as types from './types';
 
-export function incrementAction(incBy: number, lastModificationDt: number) {
+export function syncCounterIncremented(incBy: number, lastModificationDt: number) {
   // TODO
   return {
     type: types.INCREMENT,

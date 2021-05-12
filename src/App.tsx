@@ -14,3 +14,14 @@ function App() {
 }
 
 export default App;
+
+
+
+// export default function ParentCmp (props: IAppProps) {
+//   return (
+//     <div>
+//       <ChildCmp xxx={props.props}/>
+//     </div>
+//   );
+// }
+

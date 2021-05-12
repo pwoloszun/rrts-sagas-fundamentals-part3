@@ -12,20 +12,21 @@ export const selectCounterValue = (state: RootState) => {
   return stateSlice.value;
 };
 
+export const selectSquareCounterValue = (state: RootState) => {
+  const counterValue = selectCounterValue(state);
+  return counterValue ** 2;
+};
+
 const selectUpdatedAt = (state: RootState) => {
   const stateSlice = selectSlice(state);
   return stateSlice.updatedAt;
 };
 
 export const selectFormattedUpdatedAt = (state: RootState) => {
-  const updatedAt = selectUpdatedAt(state);
-  return new Date(updatedAt).toISOString();
+  return 'TOD';
 };
 
-export const selectSquareCounterValue = (state: RootState) => {
-  const counterValue = selectCounterValue(state);
-  return counterValue ** 2;
-};
+
 
 // const selectExpensiveCpu = createSelector(
 //   [selectXxx],
