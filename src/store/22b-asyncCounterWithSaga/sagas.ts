@@ -8,7 +8,7 @@ function* incrementCounter(action: any) {
     yield delay(1800);
     yield put(actions.incrementSuccess(8));
   } catch (e) {
-    yield put(actions.errorOccured('incrementCounter', e));
+    // yield put(actions.errorOccured('incrementCounter', e));
   }
 }
 

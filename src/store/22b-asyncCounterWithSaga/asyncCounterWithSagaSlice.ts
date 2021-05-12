@@ -41,41 +41,10 @@ export const asyncCounterSlice = createSlice({
         return { payload: { incBy } };
       }
     },
-    decrementRequest: {
-      reducer: (state, action: PayloadAction<{ decBy: number }>) => {
-        state.isLoading = true;
-      },
-      prepare: (decBy: number) => {
-        return {
-          payload: { decBy }
-        };
-      }
-    },
-    decrementSuccess: {
-      reducer: (state, action: PayloadAction<{ decBy: number }>) => {
-        const { decBy } = action.payload;
-        state.isLoading = false;
-        state.asyncWithSagaValue -= decBy;
-      },
-      prepare: (decBy: number) => {
-        return {
-          payload: { decBy }
-        };
-      }
-    },
-    errorOccured: {
-      reducer: (state, action: PayloadAction<{ info: string; error: Error; }>) => {
-        const { info, error } = action.payload;
-        state.isLoading = false;
-        state.errorInfo = { info, error };
-      },
-      prepare: (info: string, error: Error) => {
-        return {
-          error: true,
-          payload: { info, error },
-        };
-      }
-    },
+
+    // TODO: decrement flow
+
+    // TODO: errorOccured
   },
 });
 
