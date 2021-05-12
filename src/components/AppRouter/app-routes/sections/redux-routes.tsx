@@ -1,10 +1,10 @@
 import React from 'react';
 
-// redux
-import ReduxFundamentals from '../../../../features/21-redux-fundamentals';
-import ReduxAsync from '../../../../features/22-redux-async';
-import ReduxTodosNormalized from '../../../../features/24-redux-todos-normalized';
-import ReduxMiddleware from '../../../../features/25-redux-middleware';
+import ReduxFundamentals from 'src/features/21-redux-fundamentals';
+import ReduxAsync from 'src/features/22-redux-async';
+import ReduxTodosNormalized from 'src/features/24-redux-todos-normalized';
+import ReduxMiddleware from 'src/features/25-redux-middleware';
+import MyMailPage from 'src/features/26-mymail/MyMailPage';
 
 const reduxRoutes = [
   {
@@ -26,6 +26,11 @@ const reduxRoutes = [
     path: '/redux-middleware',
     label: 'Redux Middleware',
     main: () => <ReduxMiddleware />
+  },
+  {
+    path: '/mymail',
+    label: 'MyMail',
+    main: () => <MyMailPage />
   },
 ];
 
