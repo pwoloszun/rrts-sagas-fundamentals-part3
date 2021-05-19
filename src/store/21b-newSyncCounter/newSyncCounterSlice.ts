@@ -6,26 +6,24 @@ interface CounterState {
 }
 
 const initialState: CounterState = {
-  value: 110,
+  value: 100,
   updatedAt: null,
 };
 
 export const newSyncCounterSliceId = 'newSyncCounter';
 
-export const newSyncCounterSlice = createSlice({
+const newSyncCounterSlice = createSlice({
   name: newSyncCounterSliceId,
   initialState,
   reducers: {
-    increment: {
-      reducer: (state, action: PayloadAction<any>) => {
-        // TODO
-      },
-      prepare: () => {
-        // TODO
-        return {
-          payload: null
-        };
-      }
+
+    incremented: (state: CounterState, action: PayloadAction<{ incBy: number; }>) => {
+      const { incBy } = action.payload;
+      state.value += incBy;
+    },
+
+    errorOccured: (state, action: PayloadAction<any>) => {
+      // TODO
     },
 
     // TODO: decrement
