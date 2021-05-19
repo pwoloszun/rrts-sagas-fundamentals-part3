@@ -2,7 +2,7 @@ import { put, takeEvery, delay, select, call, StrictEffect } from 'redux-saga/ef
 
 import { actions, IncreentRequestedAction } from './asyncCounterWithSagaSlice';
 import * as selectors from './selectors';
-import { updateCounterValue, CounterValue } from 'src/api/counter-api';
+import { updateCounterValue, CounterValue, getCounterValue } from 'src/api/counter-api';
 
 function* incrementCounterWorker(action: IncreentRequestedAction): Generator<StrictEffect> {
   try {
@@ -20,14 +20,13 @@ function* incrementCounterWorker(action: IncreentRequestedAction): Generator<Str
   }
 }
 
-function* asyncIncrementRequestWatcher() {
+export function* asyncIncrementRequestWatcher() {
   yield takeEvery(actions.incrementRequested, incrementCounterWorker);
 }
+
+// const counterEntity = getCounterValue(id)
+// counterEntity.value
 
 // TODO: decrementCounter(action)
 
 // TODO asyncDecrementSaga() 
-
-export {
-  asyncIncrementRequestWatcher
-}

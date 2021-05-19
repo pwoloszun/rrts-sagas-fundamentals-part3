@@ -18,6 +18,7 @@ const initialState: AsyncCounterWithSagaState = {
 export const asyncCounterWithSagaSliceId = 'asyncCounterWithSaga';
 
 export type IncreentRequestedAction = PayloadAction<{ incBy: number; id: number; }>;
+export type DecrementRequestedAction = PayloadAction<{ decBy: number; id: number; }>;
 
 export const asyncCounterSlice = createSlice({
   name: asyncCounterWithSagaSliceId,
@@ -34,8 +35,16 @@ export const asyncCounterSlice = createSlice({
       state.asyncWithSagaValue = value;
     },
 
-    incrementFailed: () => {
+    decrementRequested: (state, action: DecrementRequestedAction) => {
+      state.isLoading = true;
     },
+
+    decrementSuccseed: (state, action: PayloadAction<{ value: number }>) => {
+      const { value } = action.payload;
+      state.isLoading = false;
+      state.asyncWithSagaValue = value;
+    },
+
   },
 });
 
