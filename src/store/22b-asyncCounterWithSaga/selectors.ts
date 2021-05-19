@@ -1,22 +1,18 @@
-import { createSelector } from '@reduxjs/toolkit';
+import { createSelector } from 'reselect';
 
 import { RootState } from '../store';
+
 import { asyncCounterWithSagaSliceId } from './asyncCounterWithSagaSlice';
 
-const selectStateSlice = (state: RootState) => {
-  return state[asyncCounterWithSagaSliceId];
-};
+const selectFeature = (state: RootState) => state[asyncCounterWithSagaSliceId];
 
-export const selectAsyncCounterWithSagaValue = createSelector(
-  [selectStateSlice],
-  (state) => {
-    return state.asyncWithSagaValue;
-  }
+export const selectAsyncCounterValue = createSelector(
+  selectFeature,
+  (state) => state.asyncWithSagaValue
 );
 
+// TODO
 export const selectIsLoading = createSelector(
-  [selectStateSlice],
-  (state) => {
-    return state.isLoading;
-  }
+  selectFeature,
+  (state) => state.isLoading
 );

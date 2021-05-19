@@ -1,19 +1,32 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, delay, select, call, StrictEffect } from 'redux-saga/effects';
 
-import { delay } from '../../utils/randoms';
-import { actions } from './asyncCounterWithSagaSlice';
+import { actions, IncreentRequestedAction } from './asyncCounterWithSagaSlice';
+import * as selectors from './selectors';
+import { updateCounterValue, CounterValue } from 'src/api/counter-api';
 
-function* incrementCounter(action: any) {
+function* incrementCounterWorker(action: IncreentRequestedAction): Generator<StrictEffect> {
   try {
-    yield delay(1800);
-    yield put(actions.incrementSuccess(8));
+    const { id, incBy } = action.payload;
+
+
+    const cmd = delay(1800);
+    yield
+    console.log('delay cmd', cmd);
+
+
+    const currValue = (yield select(selectors.selectAsyncCounterValue)) as number;
+    const nextValue = currValue + incBy;
+
+    const counterEntity = (yield call(updateCounterValue, id, { value: nextValue })) as CounterValue;
+
+    yield put(actions.incrementSuccseed({ value: counterEntity.value }));
   } catch (e) {
-    yield put(actions.errorOccured('incrementCounter', e));
+    // TODO : error handling
   }
 }
 
-function* asyncIncrementSaga() {
-  yield takeEvery(actions.incrementRequest, incrementCounter);
+function* asyncIncrementRequestWatcher() {
+  yield takeEvery(actions.incrementRequested, incrementCounterWorker);
 }
 
 // TODO: decrementCounter(action)
@@ -21,6 +34,5 @@ function* asyncIncrementSaga() {
 // TODO asyncDecrementSaga() 
 
 export {
-  asyncIncrementSaga,
-  // asyncDecrementSaga // TODO: export
+  asyncIncrementRequestWatcher
 }

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CounterState {
+interface CounterState { // state slice shape
   value: number;
   updatedAt: number | null;
 }
@@ -22,13 +22,13 @@ const newSyncCounterSlice = createSlice({
       state.value += incBy;
     },
 
-    errorOccured: (state, action: PayloadAction<any>) => {
-      // TODO
+    decremented: (state: CounterState, action: PayloadAction<{ decBy: number; modificationDt: number; }>) => {
+      const { decBy, modificationDt } = action.payload;
+      state.value -= decBy;
+      state.updatedAt = modificationDt;
     },
 
     // TODO: decrement
-
-    // TODO: reset
   },
 });
 
