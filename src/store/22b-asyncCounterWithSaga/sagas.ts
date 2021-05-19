@@ -7,12 +7,7 @@ import { updateCounterValue, CounterValue } from 'src/api/counter-api';
 function* incrementCounterWorker(action: IncreentRequestedAction): Generator<StrictEffect> {
   try {
     const { id, incBy } = action.payload;
-
-
-    const cmd = delay(1800);
-    yield
-    console.log('delay cmd', cmd);
-
+    yield delay(1800);
 
     const currValue = (yield select(selectors.selectAsyncCounterValue)) as number;
     const nextValue = currValue + incBy;
