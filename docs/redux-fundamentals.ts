@@ -18,10 +18,15 @@ class Store {
 const store = new Store();
 
 const state = {
-  newSyncCounter: {
-    ...
+
+  user: {
+    firstName: 'bob',
+    lastName: 'smith',
+    // fullName: '...'
   },
 
+  newSyncCounter: {
+  },
 
   counter: { // state slice
     value: 997

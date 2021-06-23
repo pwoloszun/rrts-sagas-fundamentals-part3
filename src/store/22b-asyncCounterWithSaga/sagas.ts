@@ -18,6 +18,8 @@ function* incrementCounterWorker(action: any): any {
   }
 }
 
+// api.getCounterValue(100)
+
 export function* asyncIncrementWatcherSaga() {
   yield takeEvery(actions.incrementRequest, incrementCounterWorker);
 }
