@@ -11,7 +11,7 @@ interface AsyncCounterWithSagaState {
 
 const initialState: AsyncCounterWithSagaState = {
   asyncWithSagaValue: -997,
-  isLoading: true,
+  isLoading: false,
   errorInfo: undefined
 };
 
@@ -21,15 +21,15 @@ export const asyncCounterSlice = createSlice({
   name: asyncCounterWithSagaSliceId,
   initialState,
   reducers: {
-    
+
     incrementRequest: (state, action: PayloadAction<{ incBy: number }>) => {
       state.isLoading = true;
     },
 
-    incrementSuccess: (state, action: PayloadAction<{ incBy: number }>) => {
-      const { incBy } = action.payload;
+    incrementSuccess: (state, action: PayloadAction<{ value: number }>) => {
+      const { value } = action.payload;
       state.isLoading = false;
-      state.asyncWithSagaValue += incBy;
+      state.asyncWithSagaValue = value;
     },
   },
 });
