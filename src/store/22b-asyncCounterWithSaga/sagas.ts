@@ -17,15 +17,7 @@ function* incrementCounterWorker(action: any): any {
   }
 }
 
-function* asyncIncrementWatcherSaga() {
+export function* asyncIncrementWatcherSaga() {
   yield takeEvery(actions.incrementRequest, incrementCounterWorker);
 }
 
-// TODO: decrementCounter(action)
-
-// TODO asyncDecrementSaga() 
-
-export {
-  asyncIncrementWatcherSaga,
-  // asyncDecrementSaga // TODO: export
-}
