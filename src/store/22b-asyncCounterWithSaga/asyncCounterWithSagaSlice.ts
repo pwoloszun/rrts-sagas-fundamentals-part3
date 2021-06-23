@@ -11,7 +11,7 @@ interface AsyncCounterWithSagaState {
 
 const initialState: AsyncCounterWithSagaState = {
   asyncWithSagaValue: -997,
-  isLoading: false,
+  isLoading: true,
   errorInfo: undefined
 };
 
@@ -21,60 +21,15 @@ export const asyncCounterSlice = createSlice({
   name: asyncCounterWithSagaSliceId,
   initialState,
   reducers: {
-    incrementRequest: {
-      reducer: (state, action: PayloadAction<{ incBy: number }>) => {
-        state.isLoading = true;
-      },
-      prepare: (incBy: number) => {
-        return {
-          payload: { incBy }
-        };
-      }
+    
+    incrementRequest: (state, action: PayloadAction<{ incBy: number }>) => {
+      state.isLoading = true;
     },
-    incrementSuccess: {
-      reducer: (state, action: PayloadAction<{ incBy: number }>) => {
-        const { incBy } = action.payload;
-        state.isLoading = false;
-        state.asyncWithSagaValue += incBy;
-      },
-      prepare: (incBy: number) => {
-        return { payload: { incBy } };
-      }
-    },
-    decrementRequest: {
-      reducer: (state, action: PayloadAction<{ decBy: number }>) => {
-        state.isLoading = true;
-      },
-      prepare: (decBy: number) => {
-        return {
-          payload: { decBy }
-        };
-      }
-    },
-    decrementSuccess: {
-      reducer: (state, action: PayloadAction<{ decBy: number }>) => {
-        const { decBy } = action.payload;
-        state.isLoading = false;
-        state.asyncWithSagaValue -= decBy;
-      },
-      prepare: (decBy: number) => {
-        return {
-          payload: { decBy }
-        };
-      }
-    },
-    errorOccured: {
-      reducer: (state, action: PayloadAction<{ info: string; error: Error; }>) => {
-        const { info, error } = action.payload;
-        state.isLoading = false;
-        state.errorInfo = { info, error };
-      },
-      prepare: (info: string, error: Error) => {
-        return {
-          error: true,
-          payload: { info, error },
-        };
-      }
+
+    incrementSuccess: (state, action: PayloadAction<{ incBy: number }>) => {
+      const { incBy } = action.payload;
+      state.isLoading = false;
+      state.asyncWithSagaValue += incBy;
     },
   },
 });

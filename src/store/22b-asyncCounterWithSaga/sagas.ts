@@ -4,12 +4,12 @@ import { delay } from '../../utils/randoms';
 import { actions } from './asyncCounterWithSagaSlice';
 
 function* incrementCounter(action: any) {
-  try {
-    yield delay(1800);
-    yield put(actions.incrementSuccess(8));
-  } catch (e) {
-    yield put(actions.errorOccured('incrementCounter', e));
-  }
+  // try {
+  //   yield delay(1800);
+  //   yield put(actions.incrementSuccess(8));
+  // } catch (e) {
+  //   yield put(actions.errorOccured('incrementCounter', e));
+  // }
 }
 
 function* asyncIncrementSaga() {

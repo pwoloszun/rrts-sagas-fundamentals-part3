@@ -1,13 +1,26 @@
 import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { selectors, actions } from 'src/store/22b-asyncCounterWithSaga';
+
 import Counter from '../../../../components/Counter';
 
-export default function AsyncCounterUsingSaga() {
-  const value = 456;
-  const isLoading = true;
+// request -> success
+//         -> error
 
-  const onIncrementHandler = () => { };
+export default function AsyncCounterUsingSaga() {
+  const dispatch = useDispatch();
+  const value = useSelector(
+    selectors.selectAsyncCounterWithSagaValue
+  );
+  const isLoading = useSelector(
+    selectors.selectIsLoading
+  );
+
+  const onIncrementHandler = () => {
+    const action = actions.incrementRequest({ incBy: 10 });
+    dispatch(action);
+  };
 
   return (
     <div>
