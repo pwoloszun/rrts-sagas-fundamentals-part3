@@ -1,6 +1,13 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CounterState {
+// import produce from 'immer';
+
+// produce({ value: 123 }, (draftState) => {
+//   draftState.value += 10;
+// });
+
+
+interface CounterState { // slice state shape
   value: number;
   updatedAt: number | null;
 }
@@ -12,28 +19,26 @@ const initialState: CounterState = {
 
 export const newSyncCounterSliceId = 'newSyncCounter';
 
-export const newSyncCounterSlice = createSlice({
+const newSyncCounterSlice = createSlice({
   name: newSyncCounterSliceId,
   initialState,
   reducers: {
-    increment: {
-      reducer: (state, action: PayloadAction<any>) => {
-        // TODO
-      },
-      prepare: () => {
-        // TODO
-        return {
-          payload: null
-        };
-      }
-    },
 
-    // TODO: decrement
+    increment: (draftState, action: PayloadAction<{ incBy: number; }>) => {
+      console.log('redux inc', action);
+      // action.payload.incBy
+      const { incBy } = action.payload;
+      draftState.value += incBy;
+    }
 
-    // TODO: reset
   },
+
+  // TODO: decrement
+
+  // TODO: reset
 });
 
 export const actions = newSyncCounterSlice.actions;
+// const action = actions.increment({ incBy: 123 });
 
 export default newSyncCounterSlice.reducer;

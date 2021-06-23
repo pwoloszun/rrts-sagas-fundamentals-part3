@@ -1,7 +1,10 @@
-interface Action {
+interface Action { // aka Events
   type: string;
-  payload: any;
+  payload?: any;
 }
+
+const action = { type: 'User Login' };
+
 
 class Store {
   dispatch(action: Action) { /*...*/ }
@@ -15,9 +18,15 @@ class Store {
 const store = new Store();
 
 const state = {
+  newSyncCounter: {
+    ...
+  },
+
+
   counter: { // state slice
     value: 997
   },
+
   users: { // users state slice
     entities: [],
     count: 123
@@ -34,6 +43,7 @@ const action = {
     users: [{ id: 123, name: 'bob' }, { id: 2, name: 'ed' }]
   }
 }; // "event"
+// FSA  Flux Standard Action
 
 store.dispatch(action);
 
@@ -59,8 +69,6 @@ function rootReducer(state, action) {
   };
 }
 
-
-
 // client code - Components
 
 // Counter component
@@ -74,3 +82,44 @@ store.subscribe(() => {
   const state = store.getState();
   //do smth
 });
+
+
+
+
+
+
+
+
+
+
+
+
+// todosFacade.create('buy bread');
+// // redux
+
+// // event that happend
+// const action = { type: 'User/Buy Bread' };
+// store.dispatch(action);
+
+
+// // how app handles event
+// function userReducer(state, action) {
+//   // ,,,,
+//   return {};
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
