@@ -3,14 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Counter from 'src/components/Counter';
 import { actions, selectors } from 'src/store/21b-newSyncCounter'; // redux module
-import { RootState } from '../../../../store/store';
 
 export default function NewSyncCounter() {
   const syncCounterValue = useSelector(
-    (state: RootState) => state.newSyncCounter.value
+    selectors.selectCounterValue
+  );
+  const updatedAt = useSelector(
+    selectors.selectFormattedUpdatedAt
   );
   const dispatch = useDispatch();
-  const updatedAt = 999999;
 
   const incrementHandler = () => {
     const action = actions.increment({ incBy: 5 });
@@ -18,11 +19,11 @@ export default function NewSyncCounter() {
   };
 
   const decrementHandler = () => {
-    //,..
-    actions.gggHhh({ yyy: 'qq', zzz: false });
-
-    const timestamp = Date.now();
-    const decBy = 7;
+    const decAction = actions.decrement({
+      decBy: 7,
+      timestamp: Date.now()
+    });
+    dispatch(decAction);
   };
 
   return (

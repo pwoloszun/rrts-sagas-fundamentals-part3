@@ -94,7 +94,7 @@ store.subscribe(() => {
 
 
 
-// todosFacade.create('buy bread');
+todosFacade.create('buy bread');
 // // redux
 
 // // event that happend
