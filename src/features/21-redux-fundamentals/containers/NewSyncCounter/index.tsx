@@ -6,13 +6,23 @@ import { actions, selectors } from 'src/store/21b-newSyncCounter'; // redux modu
 import { RootState } from '../../../../store/store';
 
 export default function NewSyncCounter() {
-  const syncCounterValue = useSelector((state: RootState) => state.newSyncCounter.value);
+  const syncCounterValue = useSelector(
+    (state: RootState) => state.newSyncCounter.value
+  );
   const dispatch = useDispatch();
   const updatedAt = 999999;
 
   const incrementHandler = () => {
     const action = actions.increment({ incBy: 5 });
     dispatch(action);
+  };
+
+  const decrementHandler = () => {
+    //,..
+    actions.gggHhh({ yyy: 'qq', zzz: false });
+
+    const timestamp = Date.now();
+    const decBy = 7;
   };
 
   return (
@@ -22,6 +32,7 @@ export default function NewSyncCounter() {
       <Counter
         value={syncCounterValue}
         onIncrement={incrementHandler}
+        onDecrement={decrementHandler}
       />
     </div>
   );
