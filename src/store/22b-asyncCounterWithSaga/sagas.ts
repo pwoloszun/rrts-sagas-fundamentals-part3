@@ -14,6 +14,7 @@ function* incrementCounterWorker(action: any): any {
     const successAction = actions.incrementSuccess({ value: counterEntity.value });
     yield put(successAction);
   } catch (e) {
+    throw e; // TODO
   }
 }
 
