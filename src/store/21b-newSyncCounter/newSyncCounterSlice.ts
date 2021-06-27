@@ -1,31 +1,25 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
-interface CounterState {
+interface CounterState { // slice state shape
   value: number;
   updatedAt: number | null;
 }
 
-const initialState: CounterState = {
+const initialState: CounterState = { // initial slice state
   value: 110,
   updatedAt: null,
 };
 
-export const newSyncCounterSliceId = 'newSyncCounter';
+export const newSyncCounterSliceId = 'newSyncCounter'; // slice id
 
-export const newSyncCounterSlice = createSlice({
+const newSyncCounterSlice = createSlice({
   name: newSyncCounterSliceId,
+
   initialState,
+
   reducers: {
-    increment: {
-      reducer: (state, action: PayloadAction<any>) => {
-        // TODO
-      },
-      prepare: () => {
-        // TODO
-        return {
-          payload: null
-        };
-      }
+    increment: (state, action: PayloadAction<any>) => {
+      // TODO
     },
 
     // TODO: decrement

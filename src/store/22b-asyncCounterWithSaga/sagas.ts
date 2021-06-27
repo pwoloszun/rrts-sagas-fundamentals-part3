@@ -1,26 +1,39 @@
-import { put, takeEvery } from 'redux-saga/effects';
+import { put, takeEvery, delay, select, call } from 'redux-saga/effects';
 
-import { delay } from '../../utils/randoms';
+import * as counterApi from 'src/api/counter-api';
+
 import { actions } from './asyncCounterWithSagaSlice';
+import * as selectors from './selectors';
 
-function* incrementCounter(action: any) {
+// private impl details
+function* incrementWorkerSaga(action: any): Generator<any, any, any> {
   try {
-    yield delay(1800);
-    yield put(actions.incrementSuccess(8));
+    const resp1 = yield 'todo';
+    console.log('response 1', resp1);
+
+    const resp2 = yield 123;
+    console.log('response 2', resp2);
+
+    // TODO: get data from payload
+
+    // TODO: delay for 2 secs
+
+    // TODO: select current counter value from redux store
+
+    // TODO: calculate next counter value === curr value + incBy
+
+    // TODO: update countervalue onserver using API
+
+    // TODO: dispatch incrementSuccess event
   } catch (e) {
-    yield put(actions.errorOccured('incrementCounter', e));
+    throw e; // TODO handle errors
   }
 }
 
-function* asyncIncrementSaga() {
-  yield takeEvery(actions.incrementRequest, incrementCounter);
+// public interface
+export function* incrementWatcherSaga() {
+  yield takeEvery(actions.incrementRequest, incrementWorkerSaga);
 }
 
-// TODO: decrementCounter(action)
-
-// TODO asyncDecrementSaga() 
-
-export {
-  asyncIncrementSaga,
-  // asyncDecrementSaga // TODO: export
-}
+// TODO: incrementWorkerSaga(action: any)
+// TODO incrementWatcherSaga() 
