@@ -24,8 +24,10 @@ const newSyncCounterSlice = createSlice({
       state.value += incBy;
     },
 
-    gggHhh: (state, action: PayloadAction<string>) => {
-
+    decrement: (state, action: PayloadAction<{ decBy: number; timestamp: number; }>) => {
+      const { decBy, timestamp } = action.payload;
+      state.value -= decBy;
+      state.updatedAt = timestamp;
     }
 
     // TODO: decrement
