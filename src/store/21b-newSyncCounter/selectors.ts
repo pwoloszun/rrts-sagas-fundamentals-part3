@@ -1,4 +1,5 @@
 import { createSelector } from '@reduxjs/toolkit';
+// reselect
 
 import { RootState } from '../store';
 import { newSyncCounterSliceId } from './newSyncCounterSlice';
@@ -13,12 +14,28 @@ export const selectCounterValue =
 export const selectCounterUpdatedAt =
   (state: RootState) => selectStateSlice(state).updatedAt;
 
-export const selectCounterFormattedUpdatedAt =
-  (state: RootState) => {
-    const updatedAt = selectCounterUpdatedAt(state);
+const selectGggHhh = (state: RootState) => 123;
+
+// export const selectCounterFormattedUpdatedAt =
+//   (state: RootState) => {
+//     const updatedAt = selectCounterUpdatedAt(state);
+//     if (updatedAt === null) {
+//       return '';
+//     } else {
+//       return new Date(updatedAt).toISOString();
+//     }
+//   };
+export const selectCounterFormattedUpdatedAt = createSelector(
+  [
+    selectCounterUpdatedAt,
+    selectGggHhh
+  ],
+  (updatedAt, gggHhh) => {
     if (updatedAt === null) {
       return '';
     } else {
       return new Date(updatedAt).toISOString();
     }
-  };
+  }
+);
+
