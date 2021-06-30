@@ -3,14 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import Counter from 'src/components/Counter';
 import { actions, selectors } from 'src/store/21b-newSyncCounter'; // redux module
-import { RootState } from '../../../../store/store';
 
 export default function NewSyncCounter() {
   const syncCounterValue = useSelector(
-    (state: RootState) => state.newSyncCounter.value
+    selectors.selectCounterValue
   );
   const updatedAt = useSelector(
-    (state: RootState) => state.newSyncCounter.updatedAt
+    selectors.selectCounterFormattedUpdatedAt
   );
   const dispatch = useDispatch();
 
