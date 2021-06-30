@@ -4,6 +4,8 @@ import { useSelector, useDispatch } from 'react-redux';
 import { selectors, actions } from 'src/store/22b-asyncCounterWithSaga';
 
 import Counter from '../../../../components/Counter';
+// reqest/pending -> success/resolved
+//                -> error/rejected
 
 export default function AsyncCounterUsingSaga() {
   const value = useSelector(
@@ -12,8 +14,11 @@ export default function AsyncCounterUsingSaga() {
   const isLoading = useSelector(
     selectors.selectIsLoading
   );
-  const onIncrementHandler = () => {
+  const dispatch = useDispatch();
 
+  const onIncrementHandler = () => {
+    const action = actions.incrementRequest({ incBy: 10 });
+    dispatch(action);
   };
 
   return (

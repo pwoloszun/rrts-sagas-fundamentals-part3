@@ -26,10 +26,10 @@ const asyncCounterSlice = createSlice({
     incrementRequest: (state, action: PayloadAction<{ incBy: number }>) => {
       state.isLoading = true;
     },
-    incrementSuccess: (state, action: PayloadAction<{ incBy: number }>) => {
-      const { incBy } = action.payload;
+    incrementSuccess: (state, action: PayloadAction<{ value: number }>) => {
+      const { value } = action.payload;
       state.isLoading = false;
-      state.asyncWithSagaValue += incBy;
+      state.asyncWithSagaValue = value;
     },
 
     // TODO: decrement - request & success
@@ -39,5 +39,8 @@ const asyncCounterSlice = createSlice({
 });
 
 export const actions = asyncCounterSlice.actions;
+
+// actions.incrementRequest.toString() === 'asyncCounterWithSaga/incrementRequest'
+// actions.incrementRequest.type === 'asyncCounterWithSaga/incrementRequest'
 
 export default asyncCounterSlice.reducer;
