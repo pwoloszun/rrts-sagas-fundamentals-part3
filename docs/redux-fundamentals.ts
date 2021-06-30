@@ -4,7 +4,7 @@ interface Action { // Events aka Actions
   payload?: any;
 }
 
-const action: Action = {
+const action = {
   type: 'source/event'
 }
 
@@ -75,7 +75,7 @@ function usersReducer(sliceState = initialState, action) {
 
 // slice reducer
 function counterReducer(sliceState, action) {
-  
+
 }
 
 
