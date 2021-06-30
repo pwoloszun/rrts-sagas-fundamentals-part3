@@ -21,6 +21,9 @@ export default function NewSyncCounter() {
 
   const decrementHandler = () => {
     //TODO
+    const decBy = 5
+    const timestamp = Date.now();
+
   };
 
   return (
