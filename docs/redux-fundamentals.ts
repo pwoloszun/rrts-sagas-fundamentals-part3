@@ -1,7 +1,19 @@
-interface Action {
+// FSA - Flux Standard Action
+interface Action { // Events aka Actions
   type: string;
-  payload: any;
+  payload?: any;
 }
+
+const action: Action = {
+  type: 'source/event'
+}
+
+const addProductToCartEvent = {
+  type: 'cartWidget/addProducet'
+}
+
+
+
 
 class Store {
   dispatch(action: Action) { /*...*/ }
@@ -14,15 +26,20 @@ class Store {
 // in app:
 const store = new Store();
 
+// global app state
 const state = {
-  counter: { // state slice
-    value: 997
-  },
-  users: { // users state slice
-    entities: [],
-    count: 123
-  },
-  todos: [] //state slice
+  counter: 123, // state slice
+
+  user: {}, // state slice
+
+  admin: { // slice state shape
+  }, // state slice
+
+  order: {
+  }, // state slice
+
+  catalog: {} // state slice
+
 };
 
 
@@ -39,12 +56,26 @@ store.dispatch(action);
 
 
 
-// reducer(s)
-function usersReducer(state, action) {
-  return {};
+// slice reducer
+function usersReducer(sliceState = initialState, action) {
+  switch (action.type) {
+    case 'newSyncCounter/increment': {
+      const nextState = { ...};
+      return nextState;
+    }
+    case 'newSyncCounter/ggg': {
+      const nextState = { ...};
+      return nextState;
+    }
+    default:
+      sliceState;
+  }
+
 }
 
-function counterReducer(state, action) {
+// slice reducer
+function counterReducer(sliceState, action) {
+  
 }
 
 
@@ -59,8 +90,6 @@ function rootReducer(state, action) {
   };
 }
 
-
-
 // client code - Components
 
 // Counter component
@@ -74,3 +103,33 @@ store.subscribe(() => {
   const state = store.getState();
   //do smth
 });
+
+
+
+
+
+/////===============
+// function ReactComp() {
+//   const action = actions.addProductToCart();
+//   const cart = useSelector(selectors.selectCart);
+
+//   // on click
+//   store.dispatch(action)
+
+//   return (
+//     <div>{ cart } < /div>
+//   )
+// }
+
+
+
+// function test() {
+//   const initialCart = useSelector(selectors.selectCart);
+//   const expctedCart = { ...};
+
+//   const action = actions.addProductToCart();
+//   store.dispatch(action)
+
+//   const actualCart = useSelector(selectors.selectCart);
+//   expect(actualCart, expctedCart);
+// }
