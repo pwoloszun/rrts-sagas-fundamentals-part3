@@ -27,7 +27,7 @@ export default function AsyncCounterUsingSaga() {
         value={value}
         onIncrement={onIncrementHandler}
       />
-      {isLoading && <div>Loading...</div>}
+      {isLoading && <h1>Loading...</h1>}
     </div>
   );
 };
