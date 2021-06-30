@@ -19,6 +19,10 @@ export default function NewSyncCounter() {
     dispatch(action);
   };
 
+  const decrementHandler = () => {
+    //TODO
+  };
+
   return (
     <div>
       <h3>NewSyncCounter</h3>
@@ -26,6 +30,7 @@ export default function NewSyncCounter() {
       <Counter
         value={syncCounterValue}
         onIncrement={incrementHandler}
+        onDecrement={decrementHandler}
       />
     </div>
   );
