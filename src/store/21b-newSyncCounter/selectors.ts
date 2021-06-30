@@ -8,8 +8,13 @@ const selectStateSlice = (state: RootState) => {
   return state[newSyncCounterSliceId];
 };
 
-export const selectCounterValue =
-  (state: RootState) => selectStateSlice(state).value;
+// export const selectCounterValue =
+//   (state: RootState) => selectStateSlice(state).value;
+
+export const selectCounterValue = createSelector(
+  [selectStateSlice],
+  (sliceState) => sliceState.value
+);
 
 export const selectCounterUpdatedAt =
   (state: RootState) => selectStateSlice(state).updatedAt;
