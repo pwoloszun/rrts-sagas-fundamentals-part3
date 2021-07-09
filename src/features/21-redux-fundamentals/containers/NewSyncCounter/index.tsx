@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Counter from 'src/components/Counter';
 import { actions, selectors } from 'src/store/21b-newSyncCounter'; // redux module
 
+// Container
 export default function NewSyncCounter() {
   const syncCounterValue = useSelector(
     selectors.selectCounterValue
@@ -20,6 +21,8 @@ export default function NewSyncCounter() {
     <div>
       <h3>NewSyncCounter</h3>
       <p>Upd at {updatedAt}</p>
+
+      {/* Pure */}
       <Counter
         value={syncCounterValue}
         onIncrement={incrementHandler}
