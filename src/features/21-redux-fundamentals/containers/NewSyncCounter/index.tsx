@@ -9,7 +9,9 @@ export default function NewSyncCounter() {
   const syncCounterValue = useSelector(
     selectors.selectCounterValue
   );
-  const updatedAt = 999999;
+  const updatedAt = useSelector(
+    selectors.selectFormattedUpdatedAt
+  );
   const dispatch = useDispatch()
 
   const incrementHandler = () => {
@@ -18,8 +20,12 @@ export default function NewSyncCounter() {
   };
 
   const decrementHandler = () => {
-    // TODO
     const timestamp = Date.now();
+    const action = actions.decrement({
+      decBy: 1,
+      timestamp
+    });
+    dispatch(action);
   };
 
   return (

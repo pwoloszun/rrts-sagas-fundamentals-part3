@@ -3,13 +3,23 @@ import { createSelector } from '@reduxjs/toolkit';
 import { RootState } from '../store';
 import { newSyncCounterSliceId } from './newSyncCounterSlice';
 
-export const selectStateSlice = (state: RootState) => {
-  return 123; // TODO
+const selectStateSlice = (state: RootState) => {
+  return state[newSyncCounterSliceId];
 };
 
 export const selectCounterValue =
-  (state: RootState) => state.newSyncCounter.value;
+  (state: RootState) => selectStateSlice(state).value;
 
 
-// TODO
-// export const selectSquareValue
+const selectUpdatedAt =
+  (state: RootState) => selectStateSlice(state).updatedAt;
+
+export const selectFormattedUpdatedAt =
+  (state: RootState) => {
+    const updatedAt = selectUpdatedAt(state);
+    if (updatedAt === null) {
+      return '';
+    } else {
+      return new Date(updatedAt).toISOString();
+    }
+  };
