@@ -1,7 +1,13 @@
 interface Action {
   type: string;
-  payload: any;
+  payload?: any;
 }
+// FSA - Flux Standard Action
+
+const action2: Action = {
+  type: 'user/login',
+};
+
 
 class Store {
   dispatch(action: Action) { /*...*/ }
@@ -14,16 +20,26 @@ class Store {
 // in app:
 const store = new Store();
 
-const state = {
+const appState = {
   counter: { // state slice
     value: 997
   },
+
   users: { // users state slice
     entities: [],
     count: 123
   },
+
   todos: [] //state slice
 };
+
+
+
+
+
+
+
+
 
 
 
@@ -41,7 +57,20 @@ store.dispatch(action);
 
 // reducer(s)
 function usersReducer(state, action) {
-  return {};
+  switch (action.type) {
+    case 'user/login': {
+      const nextState = { ...};
+      return nextState;
+    }
+
+    case 'user/event': {
+      const nextState = { ...};
+      return nextState;
+    }
+    default: {
+      return state;
+    }
+  }
 }
 
 function counterReducer(state, action) {
@@ -64,6 +93,7 @@ function rootReducer(state, action) {
 // client code - Components
 
 // Counter component
+
 store.subscribe(() => {
   const state = store.getState();
   //do smth modufy local cmp state

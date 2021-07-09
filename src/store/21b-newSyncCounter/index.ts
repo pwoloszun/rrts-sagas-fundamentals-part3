@@ -9,3 +9,8 @@ export {
 };
 
 export default reducer;
+
+
+// appState = {
+//   newSyncCounter: {...}
+// }

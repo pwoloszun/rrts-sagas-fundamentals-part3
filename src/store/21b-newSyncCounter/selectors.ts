@@ -7,8 +7,9 @@ export const selectStateSlice = (state: RootState) => {
   return 123; // TODO
 };
 
-// TODO
-// export const selectCounterValue
+export const selectCounterValue =
+  (state: RootState) => state.newSyncCounter.value;
+
 
 // TODO
 // export const selectSquareValue
