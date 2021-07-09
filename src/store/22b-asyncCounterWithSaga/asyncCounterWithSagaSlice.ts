@@ -10,7 +10,7 @@ interface AsyncCounterWithSagaState { // slice state shape
 }
 
 const initialState: AsyncCounterWithSagaState = { // initial slice state
-  asyncWithSagaValue: -997,
+  asyncWithSagaValue: -100,
   isLoading: false,
   errorInfo: undefined
 };
@@ -23,13 +23,15 @@ const asyncCounterSlice = createSlice({
   initialState,
 
   reducers: {
+
     incrementRequest: (state, action: PayloadAction<{ incBy: number }>) => {
       state.isLoading = true;
     },
-    incrementSuccess: (state, action: PayloadAction<{ incBy: number }>) => {
-      const { incBy } = action.payload;
+
+    incrementSuccess: (state, action: PayloadAction<{ value: number }>) => {
+      const { value } = action.payload;
       state.isLoading = false;
-      state.asyncWithSagaValue += incBy;
+      state.asyncWithSagaValue = value;
     },
 
     // TODO: decrement - request & success

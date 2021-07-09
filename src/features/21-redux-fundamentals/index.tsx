@@ -6,7 +6,7 @@ class ReduxFundamentals extends React.Component {
     return (
       <div>
         <h3>ReduxFundamentals </h3>
-        <NewSyncCounter />
+        {/* <NewSyncCounter /> */}
       </div>
     );
   }
